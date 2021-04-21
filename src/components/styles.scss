@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(41, 41, 41);
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  .hyrule-title {
+    text-align: center;
+    margin: 1rem;
+  }
+}
+
+.message-list {
+  .message {
+    position: relative;
+    margin-bottom: 5px;
+    padding: 0 30px;
+    max-width: 60%;
+    &:hover .delete {
+      visibility: visible;
+    }
+  }
+  .left {
+    text-align: start;
+    animation: changeColorRed 10s forwards, glideRight 1s ease-in-out forwards;
+    .delete {
+      left: 0;
+    }
+  }
+  .right {
+    text-align: end;
+    margin-left: auto;
+    animation: changeColorBlue 10s forwards, glideLeft 1s ease-in-out forwards;
+    .delete {
+      right: 0;
+    }
+  }
+  .author {
+    font-size: 0.6rem;
+    color: rgb(185, 185, 185);
+  }
+  .delete {
+    position: absolute;
+    top: 0.2rem;
+    background: transparent;
+    border: solid 1px white;
+    cursor: pointer;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    color: white;
+    visibility: hidden;
+    line-height: 0;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.message-inputs {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+input[type="text"] {
+  background: transparent;
+  border: 1px solid rgb(197, 197, 197);
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border-radius: 10px;
+  color: white;
+  font-family: inherit;
+  &:focus {
+    outline: none;
+  }
+}
+
+@keyframes changeColorRed {
+  from {
+    color: rgb(206, 206, 206);
+  }
+  to {
+    color: rgb(255, 138, 138);
+  }
+}
+
+@keyframes changeColorBlue {
+  from {
+    color: rgb(214, 214, 214);
+  }
+  to {
+    color: #aaaaf5;
+  }
+}
+
+@keyframes glideLeft {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes glideRight {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
